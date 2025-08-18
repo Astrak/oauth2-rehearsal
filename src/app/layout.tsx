@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Provider } from "./provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +26,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-stone-950`}
       >
-        {children}
+        <div className="overflow-hidden relative">
+          <div className="absolute top-6 right-0 w-[500px] h-[400px] bg-radial from-30% from-amber-700 to-70% to-transparent"></div>
+          <div className="absolute top-7 right-2 w-[400px] h-[300px] bg-radial from-30% from-amber-600 to-60% to-transparent"></div>
+          <div className="absolute top-7 right-14 w-[400px] h-[300px] bg-radial from-30% from-amber-500 to-60% to-transparent"></div>
+          <div className="absolute -top-96 -right-64 w-[1500px] h-[1400px] bg-radial from-10% from-amber-900 to-70% to-transparent"></div>
+          <div className="relative"></div>
+          <Provider>{children}</Provider>
+        </div>
       </body>
     </html>
   );
