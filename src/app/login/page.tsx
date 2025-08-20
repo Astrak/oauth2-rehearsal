@@ -1,5 +1,17 @@
 "use client";
 
+import Button from "@/components/Button/Button";
+import { signIn } from "next-auth/react";
+import { useCallback } from "react";
+
 export default function Login() {
-  return <div>Login</div>;
+  const sign = useCallback(() => {
+    console.log("sign in");
+    signIn("google");
+  }, []);
+  return (
+    <div onClick={sign} className=" cursor-pointer">
+      <Button onClick={sign}>Log in with Google</Button>
+    </div>
+  );
 }

@@ -1,11 +1,15 @@
 interface IButtonProps {
-  text: string;
+  onClick?: () => void;
+  children: React.ReactNode;
 }
 
-export default function Button({ text }: IButtonProps) {
+export default function Button({ onClick, children }: IButtonProps) {
   return (
-    <button className="bg-amber-400 px-6 py-2 cursor-pointer font-bold rounded-xl text-emerald-950">
-      {text}
+    <button
+      onClick={onClick}
+      className="bg-amber-400 px-6 py-2 cursor-pointer font-bold rounded-xl text-emerald-950"
+    >
+      {children}
     </button>
   );
 }

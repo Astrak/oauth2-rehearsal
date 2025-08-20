@@ -34,20 +34,21 @@ export default function RootLayout({
           <div className="absolute top-7 right-2 w-[400px] h-[300px] bg-radial from-30% from-amber-600 to-60% to-transparent"></div>
           <div className="absolute top-7 right-24 w-[400px] h-[300px] bg-radial from-30% from-amber-200 to-60% to-transparent"></div>
           <div className="absolute top-[-450px] -right-64 w-[1500px] h-[1400px] bg-radial from-10% from-amber-900 to-70% to-transparent"></div>
-          <div className="relative"></div>
-          <Provider>
-            <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-6 pb-20 gap-16 sm:p-20">
-              <header className="absolute top-0 w-[calc(100%-3rem)] m-6 box-border flex items-end justify-end p-6 border-1 border-amber-950 z-10 bg-[hsla(23,91%,15%,0.3)] backdrop-blur-md rounded-2xl ">
-                <LoginButton />
-              </header>
-              <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-                {children}
-              </main>
-              <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center text-amber-950">
-                Next15 demo app with next-auth for web3
-              </footer>
-            </div>
-          </Provider>
+          <div className="relative">
+            <Provider>
+              <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-6 pb-20 gap-16 sm:p-20">
+                <header className="absolute top-0 w-[calc(100%-3rem)] m-6 box-border flex items-end justify-end p-6 border-1 border-amber-950 z-10 bg-[hsla(23,91%,15%,0.3)] backdrop-blur-md rounded-2xl ">
+                  <LoginButton />
+                </header>
+                <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+                  {children}
+                </main>
+                <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center text-amber-100">
+                  Next15 demo app with next-auth for web3
+                </footer>
+              </div>
+            </Provider>
+          </div>
         </div>
       </body>
     </html>
