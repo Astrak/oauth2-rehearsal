@@ -9,7 +9,7 @@ export default function Login() {
     signIn("google");
   }, []);
   return (
-    <div onClick={sign} className=" cursor-pointer">
+    <div className="cursor-pointer">
       <Button onClick={sign}>Log in with Google</Button>
     </div>
   );
