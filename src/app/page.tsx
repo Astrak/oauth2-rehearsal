@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/Button/Button";
+import Button from "@/src/components/Button/Button";
 import { signIn } from "next-auth/react";
 import { useCallback } from "react";
 

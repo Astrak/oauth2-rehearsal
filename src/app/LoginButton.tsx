@@ -1,7 +1,8 @@
 "use client";
 
-import Button from "@/components/Button/Button";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "@/auth";
+import Button from "@/src/components/Button/Button";
+import { useSession } from "next-auth/react";
 import { useCallback } from "react";
 
 export default function LoginButton() {
