@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "@prisma/extension-accelerate": "^2.0.2",
     "@simplewebauthn/browser": "9.0.1",
     "@simplewebauthn/server": "9.0.3",
     "next": "15.4.6",
@@ -26,5 +28,8 @@
     "eslint-config-next": "15.4.6",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }

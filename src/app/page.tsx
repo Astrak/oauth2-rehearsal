@@ -1,16 +1,16 @@
-"use client";
+import prisma from "@/prisma";
+import LoginButton from "./LoginButton";
 
-import Button from "@/src/components/Button/Button";
-import { signIn } from "next-auth/react";
-import { useCallback } from "react";
-
-export default function Login() {
-  const sign = useCallback(() => {
-    signIn("google");
-  }, []);
+export default async function Login() {
+  const users = await prisma.user.findMany();
   return (
     <div className="cursor-pointer">
-      <Button onClick={sign}>Log in with Google</Button>
+      <LoginButton />
+      <ul>
+        {users.map((user, index) => (
+          <li key={index}>{user.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
