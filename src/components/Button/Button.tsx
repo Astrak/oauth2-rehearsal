@@ -2,7 +2,7 @@
 
 interface IButtonProps {
   onClick?: () => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function Button({ onClick, children }: IButtonProps) {

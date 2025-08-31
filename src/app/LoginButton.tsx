@@ -1,19 +1,31 @@
 "use client";
 
 import Button from "@/src/components/Button/Button";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useCallback } from "react";
+import { signOut, signIn, useSession } from "next-auth/react";
+import { signIn as signInPasskey } from "next-auth/webauthn";
 
 export default function LoginButton() {
   const session = useSession();
   const isAuthenticated = session.status === "authenticated";
-  const click = useCallback(async () => {
-    if (isAuthenticated) {
-      await signOut();
-    } else {
-      await signIn("google");
-    }
-  }, [isAuthenticated]);
-  console.log(session.data);
-  return <Button onClick={click}>Log {isAuthenticated ? "out" : "in"}</Button>;
+  return (
+    <div className=" flex gap-1.5">
+      {isAuthenticated ? (
+        <>
+          <Button onClick={signOut}>Log out</Button>
+          <Button
+            onClick={() => signInPasskey("passkey", { action: "register" })}
+          >
+            Create passkey
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button onClick={() => signInPasskey("passkey")}>
+            Login with passkey
+          </Button>
+          <Button onClick={() => signIn("google")}>Login with Google</Button>
+        </>
+      )}
+    </div>
+  );
 }
